@@ -146,7 +146,15 @@ export const calcBondDetails = createAsyncThunk(
     }
 
     // Calculate bonds purchased
-    let purchased = await bond.getTreasuryBalance(networkID, provider);
+    var purchased = 0;
+    await bond
+      .getTreasuryBalance(networkID, provider)
+      .then(res => {
+        purchased = res;
+      })
+      .catch(_err => {
+        purchased = 0;
+      });
 
     return {
       bond: bond.name,
@@ -166,6 +174,8 @@ export const bondAsset = createAsyncThunk(
   "bonding/bondAsset",
   async ({ value, address, bond, networkID, provider, slippage }: IBondAssetAsyncThunk, { dispatch }) => {
     const depositorAddress = address;
+
+    console.log("bonding/bondAsset ", depositorAddress);
     const acceptedSlippage = slippage / 100 || 0.005; // 0.5% as default
     // parseUnits takes String => BigNumber
     const valueInWei = ethers.utils.parseUnits(value.toString(), "ether");

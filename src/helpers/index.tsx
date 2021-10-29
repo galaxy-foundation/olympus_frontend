@@ -17,7 +17,7 @@ export async function getMarketPrice({ networkID, provider }: IBaseAsyncThunk) {
   const ohm_dai_address = ohm_dai.getAddressForReserve(networkID);
   const pairContract = new ethers.Contract(ohm_dai_address, PairContract, provider);
   const reserves = await pairContract.getReserves();
-  const marketPrice = reserves[1] / reserves[0];
+  const marketPrice = 100; //reserves[1] / reserves[0];
 
   // commit('set', { marketPrice: marketPrice / Math.pow(10, 9) });
   return marketPrice;
@@ -121,10 +121,14 @@ export function getTokenImage(name: string) {
 // TS-REFACTOR-NOTE - Used for:
 // AccountSlice.ts, AppSlice.ts, LusdSlice.ts
 export function setAll(state: any, properties: any) {
-  const props = Object.keys(properties);
-  props.forEach(key => {
-    state[key] = properties[key];
-  });
+  try {
+    const props = Object.keys(properties);
+    props.forEach(key => {
+      state[key] = properties[key];
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export function contractForRedeemHelper({

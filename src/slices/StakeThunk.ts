@@ -50,7 +50,7 @@ export const changeApproval = createAsyncThunk(
     let approveTx;
     let stakeAllowance = await ohmContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
     let unstakeAllowance = await sohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-
+    console.log(stakeAllowance, unstakeAllowance);
     // return early if approval has already happened
     if (alreadyApprovedToken(token, stakeAllowance, unstakeAllowance)) {
       dispatch(info("Approval completed."));

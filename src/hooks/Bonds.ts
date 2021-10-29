@@ -29,6 +29,7 @@ function useBonds() {
   const [bonds, setBonds] = useState<Bond[] | IAllBondData[]>(initialBondArray);
 
   useEffect(() => {
+    console.log("bondState", bondState, "accountBondsState", accountBondsState);
     let bondDetails: IAllBondData[];
     bondDetails = allBonds
       .flatMap(bond => {

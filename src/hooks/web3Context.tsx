@@ -95,6 +95,7 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
             rpc: {
               1: getMainnetURI(),
               4: getTestnetURI(),
+              4002: "https://rpc.testnet.fantom.network",
             },
           },
         },
@@ -139,9 +140,10 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
   const _checkNetwork = (otherChainID: number): Boolean => {
     if (chainID !== otherChainID) {
       console.warn("You are switching networks");
-      if (otherChainID === 1 || otherChainID === 4) {
+
+      if (otherChainID === 4002) {
         setChainID(otherChainID);
-        otherChainID === 1 ? setUri(getMainnetURI()) : setUri(getTestnetURI());
+        setUri("https://rpc.testnet.fantom.network");
         return true;
       }
       return false;
@@ -167,7 +169,7 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
     const connectedAddress = await connectedProvider.getSigner().getAddress();
     const validNetwork = _checkNetwork(chainId);
     if (!validNetwork) {
-      console.error("Wrong network, please switch to mainnet");
+      console.error("Wrong network, please switch to fantomtestnet");
       return;
     }
     // Save everything after we've validated the right network.

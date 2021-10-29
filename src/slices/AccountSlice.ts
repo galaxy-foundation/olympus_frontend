@@ -16,13 +16,15 @@ import { IBaseAddressAsyncThunk, ICalcUserBondDetailsAsyncThunk } from "./interf
 export const getBalances = createAsyncThunk(
   "account/getBalances",
   async ({ address, networkID, provider }: IBaseAddressAsyncThunk) => {
+    console.log("ohmBalance", "sohmBalance");
     const ohmContract = new ethers.Contract(addresses[networkID].OHM_ADDRESS as string, ierc20Abi, provider);
     const ohmBalance = await ohmContract.balanceOf(address);
     const sohmContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS as string, ierc20Abi, provider);
     const sohmBalance = await sohmContract.balanceOf(address);
     let poolBalance = 0;
-    const poolTokenContract = new ethers.Contract(addresses[networkID].PT_TOKEN_ADDRESS as string, ierc20Abi, provider);
-    poolBalance = await poolTokenContract.balanceOf(address);
+    console.log("ohmBalance", ohmBalance, "sohmBalance", sohmBalance);
+    // const poolTokenContract = new ethers.Contract(addresses[networkID].PT_TOKEN_ADDRESS as string, ierc20Abi, provider);
+    // poolBalance = await poolTokenContract.balanceOf(address);
 
     return {
       balances: {
@@ -66,47 +68,59 @@ export const loadAccountDetails = createAsyncThunk(
     let poolBalance = 0;
     let poolAllowance = 0;
 
+    console.log("account/loadAccountDetails");
     const daiContract = new ethers.Contract(addresses[networkID].DAI_ADDRESS as string, ierc20Abi, provider);
     const daiBalance = await daiContract.balanceOf(address);
-
+    console.log("account/daiBalance", String(daiBalance));
     if (addresses[networkID].OHM_ADDRESS) {
       const ohmContract = new ethers.Contract(addresses[networkID].OHM_ADDRESS as string, ierc20Abi, provider);
       ohmBalance = await ohmContract.balanceOf(address);
       stakeAllowance = await ohmContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
+      console.log("account/stakeAllowance", String(stakeAllowance));
     }
 
     if (addresses[networkID].SOHM_ADDRESS) {
       const sohmContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS as string, sOHMv2, provider);
       sohmBalance = await sohmContract.balanceOf(address);
       unstakeAllowance = await sohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-      poolAllowance = await sohmContract.allowance(address, addresses[networkID].PT_PRIZE_POOL_ADDRESS);
+      // poolAllowance = await sohmContract.allowance(address, addresses[networkID].PT_PRIZE_POOL_ADDRESS);
+      console.log("account/unstakeAllowance", String(unstakeAllowance));
     }
 
-    if (addresses[networkID].PT_TOKEN_ADDRESS) {
-      const poolTokenContract = await new ethers.Contract(addresses[networkID].PT_TOKEN_ADDRESS, ierc20Abi, provider);
-      poolBalance = await poolTokenContract.balanceOf(address);
-    }
+    // if (addresses[networkID].PT_TOKEN_ADDRESS) {
+    //   const poolTokenContract = await new ethers.Contract(addresses[networkID].PT_TOKEN_ADDRESS, ierc20Abi, provider);
+    //   poolBalance = await poolTokenContract.balanceOf(address);
+    // }
 
-    for (const fuseAddressKey of ["FUSE_6_SOHM", "FUSE_18_SOHM"]) {
-      if (addresses[networkID][fuseAddressKey]) {
-        const fsohmContract = await new ethers.Contract(
-          addresses[networkID][fuseAddressKey] as string,
-          fuseProxy,
-          provider,
-        );
-        fsohmContract.signer;
-        const exchangeRate = ethers.utils.formatEther(await fsohmContract.exchangeRateStored());
-        const balance = ethers.utils.formatUnits(await fsohmContract.balanceOf(address), "gwei");
-        fsohmBalance += Number(balance) * Number(exchangeRate);
-      }
-    }
+    // for (const fuseAddressKey of ["FUSE_6_SOHM", "FUSE_18_SOHM"]) {
+    //   if (addresses[networkID][fuseAddressKey]) {
+    //     const fsohmContract = await new ethers.Contract(
+    //       addresses[networkID][fuseAddressKey] as string,
+    //       fuseProxy,
+    //       provider,
+    //     );
+    //     fsohmContract.signer;
+    //     const exchangeRate = ethers.utils.formatEther(await fsohmContract.exchangeRateStored());
+    //     const balance = ethers.utils.formatUnits(await fsohmContract.balanceOf(address), "gwei");
+    //     fsohmBalance += Number(balance) * Number(exchangeRate);
+    //   }
+    // }
 
-    if (addresses[networkID].WSOHM_ADDRESS) {
-      const wsohmContract = new ethers.Contract(addresses[networkID].WSOHM_ADDRESS as string, wsOHM, provider);
-      const balance = await wsohmContract.balanceOf(address);
-      wsohmBalance = await wsohmContract.wOHMTosOHM(balance);
-    }
+    // if (addresses[networkID].WSOHM_ADDRESS) {
+    //   const wsohmContract = new ethers.Contract(addresses[networkID].WSOHM_ADDRESS as string, wsOHM, provider);
+    //   const balance = await wsohmContract.balanceOf(address);
+    //   wsohmBalance = await wsohmContract.wOHMTosOHM(balance);
+    // }
 
+    console.log(
+      "account/loadAccountDetails",
+      ethers.utils.formatEther(daiBalance),
+      ethers.utils.formatUnits(ohmBalance, "gwei"),
+      ethers.utils.formatUnits(sohmBalance, "gwei"),
+      fsohmBalance,
+      ethers.utils.formatUnits(wsohmBalance, "gwei"),
+      ethers.utils.formatUnits(poolBalance, "gwei"),
+    );
     return {
       balances: {
         dai: ethers.utils.formatEther(daiBalance),

@@ -84,6 +84,7 @@ export function BondDataCard({ bond }) {
 export function BondTableData({ bond }) {
   const { chainID } = useWeb3Context();
   // Use BondPrice as indicator of loading.
+  console.log("BondTableData", bond.bondPrice);
   const isBondLoading = !bond.bondPrice ?? true;
   // const isBondLoading = useSelector(state => !state.bonding[bond]?.bondPrice ?? true);
 

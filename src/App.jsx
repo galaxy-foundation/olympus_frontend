@@ -225,9 +225,11 @@ function App() {
               <Stake />
             </Route>
 
-            <Route path="/33-together">
-              <PoolTogether />
-            </Route>
+            {/*
+				<Route path="/33-together">
+				<PoolTogether />
+				</Route>
+			*/}
 
             <Route path="/bonds">
               {bonds.map(bond => {

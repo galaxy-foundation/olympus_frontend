@@ -34,7 +34,7 @@ export const dai = new StableBond({
   name: "dai",
   displayName: "DAI",
   bondToken: "DAI",
-  isAvailable: { [NetworkID.Mainnet]: true, [NetworkID.Testnet]: true },
+  isAvailable: { [NetworkID.Mainnet]: true, [NetworkID.Testnet]: true, [NetworkID.FantomTestnet]: true },
   bondIconSvg: DaiImg,
   bondContractABI: DaiBondContract,
   networkAddrs: {
@@ -46,6 +46,10 @@ export const dai = new StableBond({
       bondAddress: "0xDea5668E815dAF058e3ecB30F645b04ad26374Cf",
       reserveAddress: "0xB2180448f8945C8Cc8AE9809E67D6bd27d8B2f2C",
     },
+    [NetworkID.FantomTestnet]: {
+      bondAddress: "0x32E3410BB9d0404cB89fb77306bB4F43331549eE",
+      reserveAddress: "0x9217429bBd3b6E7bcb2d9Bb0485e702aDe82996B",
+    },
   },
 });
 
@@ -53,7 +57,7 @@ export const frax = new StableBond({
   name: "frax",
   displayName: "FRAX",
   bondToken: "FRAX",
-  isAvailable: { [NetworkID.Mainnet]: true, [NetworkID.Testnet]: true },
+  isAvailable: { [NetworkID.Mainnet]: true, [NetworkID.Testnet]: true, [NetworkID.FantomTestnet]: true },
   bondIconSvg: FraxImg,
   bondContractABI: FraxBondContract,
   networkAddrs: {
@@ -64,6 +68,10 @@ export const frax = new StableBond({
     [NetworkID.Testnet]: {
       bondAddress: "0xF651283543fB9D61A91f318b78385d187D300738",
       reserveAddress: "0x2F7249cb599139e560f0c81c269Ab9b04799E453",
+    },
+    [NetworkID.FantomTestnet]: {
+      bondAddress: "0x32C8189B71b5BC158Ad09471848523F1A5cb2D79",
+      reserveAddress: "0x9217429bBd3b6E7bcb2d9Bb0485e702aDe82996B",
     },
   },
 });
@@ -83,6 +91,10 @@ export const lusd = new StableBond({
     [NetworkID.Testnet]: {
       bondAddress: "0x3aD02C4E4D1234590E87A1f9a73B8E0fd8CF8CCa",
       reserveAddress: "0x45754dF05AA6305114004358eCf8D04FF3B84e26",
+    },
+    [NetworkID.FantomTestnet]: {
+      bondAddress: "0xDea5668E815dAF058e3ecB30F645b04ad26374Cf",
+      reserveAddress: "0xB2180448f8945C8Cc8AE9809E67D6bd27d8B2f2C",
     },
   },
 });
@@ -106,6 +118,10 @@ export const eth = new CustomBond({
       bondAddress: "0xca7b90f8158A4FAA606952c023596EE6d322bcf0",
       reserveAddress: "0xc778417e063141139fce010982780140aa0cd5ab",
     },
+    [NetworkID.FantomTestnet]: {
+      bondAddress: "0xDea5668E815dAF058e3ecB30F645b04ad26374Cf",
+      reserveAddress: "0xB2180448f8945C8Cc8AE9809E67D6bd27d8B2f2C",
+    },
   },
   customTreasuryBalanceFunc: async function (this: CustomBond, networkID, provider) {
     const ethBondContract = this.getContractForBond(networkID, provider);
@@ -122,7 +138,7 @@ export const ohm_dai = new LPBond({
   name: "ohm_dai_lp",
   displayName: "OHM-DAI LP",
   bondToken: "DAI",
-  isAvailable: { [NetworkID.Mainnet]: true, [NetworkID.Testnet]: true },
+  isAvailable: { [NetworkID.Mainnet]: true, [NetworkID.Testnet]: true, [NetworkID.FantomTestnet]: true },
   bondIconSvg: OhmDaiImg,
   bondContractABI: BondOhmDaiContract,
   reserveContract: ReserveOhmDaiContract,
@@ -134,6 +150,10 @@ export const ohm_dai = new LPBond({
     [NetworkID.Testnet]: {
       bondAddress: "0xcF449dA417cC36009a1C6FbA78918c31594B9377",
       reserveAddress: "0x8D5a22Fb6A1840da602E56D1a260E56770e0bCE2",
+    },
+    [NetworkID.FantomTestnet]: {
+      bondAddress: "0xDea5668E815dAF058e3ecB30F645b04ad26374Cf",
+      reserveAddress: "0xB2180448f8945C8Cc8AE9809E67D6bd27d8B2f2C",
     },
   },
   lpUrl:
@@ -156,6 +176,10 @@ export const ohm_frax = new LPBond({
     [NetworkID.Testnet]: {
       bondAddress: "0x7BB53Ef5088AEF2Bb073D9C01DCa3a1D484FD1d2",
       reserveAddress: "0x11BE404d7853BDE29A3e73237c952EcDCbBA031E",
+    },
+    [NetworkID.FantomTestnet]: {
+      bondAddress: "0xDea5668E815dAF058e3ecB30F645b04ad26374Cf",
+      reserveAddress: "0xB2180448f8945C8Cc8AE9809E67D6bd27d8B2f2C",
     },
   },
   lpUrl:
@@ -180,6 +204,10 @@ export const ohm_lusd = new LPBond({
       bondAddress: "0xcF449dA417cC36009a1C6FbA78918c31594B9377",
       reserveAddress: "0x8D5a22Fb6A1840da602E56D1a260E56770e0bCE2",
     },
+    [NetworkID.FantomTestnet]: {
+      bondAddress: "0xDea5668E815dAF058e3ecB30F645b04ad26374Cf",
+      reserveAddress: "0xB2180448f8945C8Cc8AE9809E67D6bd27d8B2f2C",
+    },
   },
   lpUrl:
     "https://app.sushi.com/add/0x383518188C0C6d7730D91b2c03a03C837814a899/0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
@@ -202,6 +230,10 @@ export const ohm_weth = new CustomBond({
       // NOTE (unbanksy): using ohm-dai rinkeby contracts
       bondAddress: "0xcF449dA417cC36009a1C6FbA78918c31594B9377",
       reserveAddress: "0x8D5a22Fb6A1840da602E56D1a260E56770e0bCE2",
+    },
+    [NetworkID.FantomTestnet]: {
+      bondAddress: "0xDea5668E815dAF058e3ecB30F645b04ad26374Cf",
+      reserveAddress: "0xB2180448f8945C8Cc8AE9809E67D6bd27d8B2f2C",
     },
   },
   bondType: BondType.LP,
@@ -238,7 +270,7 @@ export const ohm_weth = new CustomBond({
 // Is it a stableCoin bond? use `new StableBond`
 // Is it an LP Bond? use `new LPBond`
 // Add new bonds to this array!!
-export const allBonds = [dai, frax, eth, ohm_dai, ohm_frax, lusd, ohm_lusd, ohm_weth];
+export const allBonds = [dai, frax]; //, eth, ohm_dai, ohm_frax, lusd, ohm_lusd, ohm_weth
 export const allBondsMap = allBonds.reduce((prevVal, bond) => {
   return { ...prevVal, [bond.name]: bond };
 }, {});

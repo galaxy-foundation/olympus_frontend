@@ -9,6 +9,7 @@ import React, { ReactNode } from "react";
 export enum NetworkID {
   Mainnet = 1,
   Testnet = 4,
+  FantomTestnet = 4002,
 }
 
 export enum BondType {
@@ -24,11 +25,13 @@ export interface BondAddresses {
 export interface NetworkAddresses {
   [NetworkID.Mainnet]: BondAddresses;
   [NetworkID.Testnet]: BondAddresses;
+  [NetworkID.FantomTestnet]: BondAddresses;
 }
 
 export interface Available {
   [NetworkID.Mainnet]?: boolean;
   [NetworkID.Testnet]?: boolean;
+  [NetworkID.FantomTestnet]?: boolean;
 }
 
 interface BondOpts {

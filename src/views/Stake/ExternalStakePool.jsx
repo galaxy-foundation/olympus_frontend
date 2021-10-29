@@ -58,12 +58,12 @@ export default function ExternalStakePool() {
   }, []);
 
   // this useEffect fires on state change from above. It will ALWAYS fire AFTER
-  useEffect(() => {
-    // don't load ANY details until wallet is Checked
-    if (walletChecked) {
-      loadLusdData();
-    }
-  }, [walletChecked]);
+  // useEffect(() => {
+  //   // don't load ANY details until wallet is Checked
+  //   if (walletChecked) {
+  //     loadLusdData();
+  //   }
+  // }, [walletChecked]);
 
   return (
     <Zoom in={true}>
@@ -90,20 +90,22 @@ export default function ExternalStakePool() {
                     <TableCell>
                       <Box className="ohm-pairs">
                         <BondLogo bond={{ bondIconSvg: OhmLusdImg, isLP: true }}></BondLogo>
-                        <Typography>OHM-LUSD</Typography>
+                        <Typography>OHM-DAI</Typography>
                       </Box>
                     </TableCell>
                     <TableCell align="left">
-                      {isLusdLoading ? (
+                      "Coming Soon"
+                      {/*{isLusdLoading ? (
                         <Skeleton width="80px" />
                       ) : lusdData.apy === 0 ? (
                         "Coming Soon"
                       ) : (
                         trim(lusdData.apy, 1) + "%"
-                      )}
+                      )}*/}
                     </TableCell>
                     <TableCell align="left">
-                      {isLusdLoading ? (
+                      $0
+                      {/*{isLusdLoading ? (
                         <Skeleton width="80px" />
                       ) : (
                         new Intl.NumberFormat("en-US", {
@@ -112,16 +114,17 @@ export default function ExternalStakePool() {
                           maximumFractionDigits: 0,
                           minimumFractionDigits: 0,
                         }).format(lusdData.tvl)
-                      )}
+                      )}*/}
                     </TableCell>
                     <TableCell align="left">
-                      {isLusdLoading ? <Skeleton width="80px" /> : (trim(ohmLusdReserveBalance, 2) || 0) + " SLP"}
+                      0
+                      {/*{isLusdLoading ? <Skeleton width="80px" /> : (trim(ohmLusdReserveBalance, 2) || 0) + " SLP"}*/}
                     </TableCell>
                     <TableCell align="center">
                       <Button
                         variant="outlined"
                         color="secondary"
-                        href="https://crucible.alchemist.wtf/reward-programs"
+                        // href="https://crucible.alchemist.wtf/reward-programs"
                         target="_blank"
                         className="stake-lp-button"
                       >

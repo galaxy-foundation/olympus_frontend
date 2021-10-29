@@ -51,9 +51,9 @@ function Stake() {
   const currentIndex = useSelector(state => {
     return state.app.currentIndex;
   });
-  const fiveDayRate = useSelector(state => {
+  const fiveDayRate = 1; /* useSelector(state => {
     return state.app.fiveDayRate;
-  });
+  });*/
   const ohmBalance = useSelector(state => {
     return state.account.balances && state.account.balances.ohm;
   });
@@ -152,7 +152,7 @@ function Stake() {
       .toFixed(4),
   );
   const trimmedStakingAPY = trim(stakingAPY * 100, 1);
-  const stakingRebasePercentage = trim(stakingRebase * 100, 4);
+  const stakingRebasePercentage = 1; //trim(stakingRebase * 100, 4);
   const nextRewardValue = trim((stakingRebasePercentage / 100) * trimmedBalance, 4);
 
   return (
@@ -189,11 +189,12 @@ function Stake() {
                         APY
                       </Typography>
                       <Typography variant="h4">
-                        {stakingAPY ? (
+                        100%
+                        {/*{stakingAPY ? (
                           <>{new Intl.NumberFormat("en-US").format(trimmedStakingAPY)}%</>
                         ) : (
                           <Skeleton width="150px" />
-                        )}
+                        )}*/}
                       </Typography>
                     </div>
                   </Grid>
@@ -204,7 +205,7 @@ function Stake() {
                         Total Value Deposited
                       </Typography>
                       <Typography variant="h4">
-                        {stakingTVL ? (
+                        {/*{stakingTVL ? (
                           new Intl.NumberFormat("en-US", {
                             style: "currency",
                             currency: "USD",
@@ -213,7 +214,8 @@ function Stake() {
                           }).format(stakingTVL)
                         ) : (
                           <Skeleton width="150px" />
-                        )}
+                        )} */}
+                        $10000
                       </Typography>
                     </div>
                   </Grid>
@@ -224,7 +226,7 @@ function Stake() {
                         Current Index
                       </Typography>
                       <Typography variant="h4">
-                        {currentIndex ? <>{trim(currentIndex, 1)} OHM</> : <Skeleton width="150px" />}
+                        100{/*{currentIndex ? <>{trim(currentIndex, 1)} OHM</> : <Skeleton width="150px" />}*/}
                       </Typography>
                     </div>
                   </Grid>

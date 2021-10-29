@@ -7,6 +7,7 @@ export const BLOCK_RATE_SECONDS = 13.14;
 export const TOKEN_DECIMALS = 9;
 
 export const POOL_GRAPH_URLS = {
+  4002: "https://api.thegraph.com/subgraphs/name/pooltogether/rinkeby-v3_4_3",
   4: "https://api.thegraph.com/subgraphs/name/pooltogether/rinkeby-v3_4_3",
   1: "https://api.thegraph.com/subgraphs/name/pooltogether/pooltogether-v3_4_3",
 };
@@ -33,6 +34,16 @@ export const addresses: IAddresses = {
     PT_TOKEN_ADDRESS: "0x0a2d026bacc573a8b5a2b049f956bdf8e5256cfd", // 33T token address, taken from `ticket` function on PRIZE_STRATEGY_ADDRESS
     PT_PRIZE_POOL_ADDRESS: "0xf9081132864ed5e4980CFae83bDB122d86619281", // NEW
     PT_PRIZE_STRATEGY_ADDRESS: "0x2Df17EA8D6B68Ec444c9a698315AfB36425dac8b", // NEW
+  },
+  4002: {
+    DAI_ADDRESS: "0x269e91822380b8C2007f339036F869E4B03C10A1",
+    OHM_ADDRESS: "0x88ef7407E0E4daf70e2b0CFE360429FC8A5f0762",
+    STAKING_ADDRESS: "0x6be51d832C579A8d01CAE792d339E37c8C229E34",
+    STAKING_HELPER_ADDRESS: "0x65CF264B0B35EaAa672D8d7385A7572Cb2c16C17",
+    SOHM_ADDRESS: "0xae90EDDA5D98cCd1BBb471e893Da4241B6b0EF3f",
+    DISTRIBUTOR_ADDRESS: "0x00f6ff74c2f3951210Aae4dDFE08F1aEdCc83ee2",
+    BONDINGCALC_ADDRESS: "0x5A6314D764C25221b0D72505356f9274695Bcb21",
+    TREASURY_ADDRESS: "0x5842d4B85d09dfbFC63a2abDe8bc97a94f7F1B02",
   },
   1: {
     DAI_ADDRESS: "0x6b175474e89094c44da98b954eedeac495271d0f", // duplicate

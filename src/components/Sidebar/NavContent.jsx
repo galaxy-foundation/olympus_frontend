@@ -59,7 +59,7 @@ function NavContent() {
 
           <div className="dapp-menu-links">
             <div className="dapp-nav" id="navbarNav">
-              <Link
+              {/*<Link
                 component={NavLink}
                 id="dash-nav"
                 to="/dashboard"
@@ -72,7 +72,7 @@ function NavContent() {
                   <SvgIcon color="primary" component={DashboardIcon} />
                   Dashboard
                 </Typography>
-              </Link>
+              </Link>*/}
 
               <Link
                 component={NavLink}
@@ -89,7 +89,7 @@ function NavContent() {
                 </Typography>
               </Link>
 
-              <Link
+              {/*<Link
                 component={NavLink}
                 id="33-together-nav"
                 to="/33-together"
@@ -103,6 +103,7 @@ function NavContent() {
                   3,3 Together
                 </Typography>
               </Link>
+			*/}
 
               <Link
                 component={NavLink}
@@ -124,7 +125,7 @@ function NavContent() {
                   <Typography variant="body2">Bond discounts</Typography>
                   {bonds.map((bond, i) => (
                     <Link component={NavLink} to={`/bonds/${bond.name}`} key={i} className={"bond"}>
-                      {!bond.bondDiscount ? (
+                      {/*{!bond.bondDiscount ? (
                         <Skeleton variant="text" width={"150px"} />
                       ) : (
                         <Typography variant="body2">
@@ -133,7 +134,15 @@ function NavContent() {
                             {bond.bondDiscount && trim(bond.bondDiscount * 100, 2)}%
                           </span>
                         </Typography>
-                      )}
+                      }*/}
+                      {
+                        <Typography variant="body2">
+                          {bond.displayName}
+                          <span className="bond-pair-roi">
+                            {bond.bondDiscount && trim(bond.bondDiscount * 100, 2)}%
+                          </span>
+                        </Typography>
+                      }
                     </Link>
                   ))}
                 </div>
@@ -141,7 +150,7 @@ function NavContent() {
             </div>
           </div>
         </div>
-        <Box className="dapp-menu-bottom" display="flex" justifyContent="space-between" flexDirection="column">
+        {/*<Box className="dapp-menu-bottom" display="flex" justifyContent="space-between" flexDirection="column">
           <div className="dapp-menu-external-links">
             {Object.keys(externalUrls).map((link, i) => {
               return (
@@ -155,7 +164,7 @@ function NavContent() {
           <div className="dapp-menu-social">
             <Social />
           </div>
-        </Box>
+        </Box>*/}
       </Box>
     </Paper>
   );

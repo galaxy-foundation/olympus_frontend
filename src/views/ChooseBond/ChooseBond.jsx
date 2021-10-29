@@ -42,7 +42,7 @@ function ChooseBond() {
   });
 
   const marketPrice = useSelector(state => {
-    return state.app.marketPrice;
+    return 1; //state.app.marketPrice;
   });
 
   const treasuryBalance = useSelector(state => {
