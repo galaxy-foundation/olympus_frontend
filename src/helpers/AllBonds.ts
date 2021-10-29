@@ -47,8 +47,8 @@ export const dai = new StableBond({
       reserveAddress: "0xB2180448f8945C8Cc8AE9809E67D6bd27d8B2f2C",
     },
     [NetworkID.FantomTestnet]: {
-      bondAddress: "0x32E3410BB9d0404cB89fb77306bB4F43331549eE",
-      reserveAddress: "0x9217429bBd3b6E7bcb2d9Bb0485e702aDe82996B",
+      bondAddress: "0x1808ada8424ae2818acA2BbF64fBA023ebA853C6",
+      reserveAddress: "0xBd8659fCE5A08f3178F40299Ab009F0F5aB3DDe6",
     },
   },
 });
@@ -70,8 +70,8 @@ export const frax = new StableBond({
       reserveAddress: "0x2F7249cb599139e560f0c81c269Ab9b04799E453",
     },
     [NetworkID.FantomTestnet]: {
-      bondAddress: "0x32C8189B71b5BC158Ad09471848523F1A5cb2D79",
-      reserveAddress: "0x9217429bBd3b6E7bcb2d9Bb0485e702aDe82996B",
+      bondAddress: "0x567068C23f497A94AE78afEddB04D2Fc64f86004",
+      reserveAddress: "0xBd8659fCE5A08f3178F40299Ab009F0F5aB3DDe6",
     },
   },
 });
