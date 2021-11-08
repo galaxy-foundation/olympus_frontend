@@ -10,6 +10,8 @@ export enum NetworkID {
   Mainnet = 1,
   Testnet = 4,
   FantomTestnet = 4002,
+  Fantom = 250,
+  Local = 31337,
 }
 
 export enum BondType {
@@ -26,12 +28,16 @@ export interface NetworkAddresses {
   [NetworkID.Mainnet]: BondAddresses;
   [NetworkID.Testnet]: BondAddresses;
   [NetworkID.FantomTestnet]: BondAddresses;
+  [NetworkID.Fantom]: BondAddresses;
+  [NetworkID.Local]: BondAddresses;
 }
 
 export interface Available {
   [NetworkID.Mainnet]?: boolean;
   [NetworkID.Testnet]?: boolean;
   [NetworkID.FantomTestnet]?: boolean;
+  [NetworkID.Fantom]?: boolean;
+  [NetworkID.Local]?: boolean;
 }
 
 interface BondOpts {

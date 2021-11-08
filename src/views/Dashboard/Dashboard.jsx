@@ -25,7 +25,7 @@ function Dashboard() {
       <Grid container spacing={1} className="top-row-data">
         <Grid item lg={4} md={4} sm={3} xs={5} className="olympus-card">
           <Zoom in={true}>
-            <Paper className="ohm-card">
+            <Paper className="pip-card">
               <Typography variant="h6">Price</Typography>
               <Typography variant="h5">
                 {isAppLoading ? <Skeleton width="100px" /> : `$${trim(marketPrice, 2)}`}
@@ -36,7 +36,7 @@ function Dashboard() {
 
         <Grid item lg={4} md={4} sm={4} xs={7}>
           <Zoom in={true}>
-            <Paper className="ohm-card">
+            <Paper className="pip-card">
               <Typography variant="h6">Market Cap</Typography>
               <Typography variant="h5">
                 {isAppLoading ? (
@@ -56,7 +56,7 @@ function Dashboard() {
 
         <Grid item lg={4} md={4} sm={5} xs={12}>
           <Zoom in={true}>
-            <Paper className="ohm-card">
+            <Paper className="pip-card">
               <Typography variant="h6">Supply (circulating/total)</Typography>
               <Typography variant="h5">
                 {isAppLoading ? (
@@ -152,7 +152,7 @@ function Dashboard() {
                 frameBorder="0"
                 loading="lazy"
                 src="https://duneanalytics.com/embeds/28756/58813/c7893c75-d8f1-421e-85c3-556a22cd7885"
-                title="OHM Stakers"
+                title="PIP Stakers"
               />
             </div>
           </Grid>

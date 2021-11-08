@@ -27,10 +27,10 @@
     justify-items: center;
   }
 
-  .ohm-card .header {
+  .pip-card .header {
     min-height: 3em;
   }
-  .ohm-card.secondary .card-header {
+  .pip-card.secondary .card-header {
     min-height: 33px !important;
     height: 20px;
   }
@@ -92,7 +92,7 @@
   }
 }
 
-.ohm-logo-tiny {
+.pip-logo-tiny {
   height: 14px;
   width: 14px;
   vertical-align: middle;
@@ -147,7 +147,7 @@
   }
 }
 
-.ohm-input {
+.pip-input {
   max-width: 542px;
   width: 100%;
   margin: 5px !important;
@@ -201,7 +201,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    .ohm-pairs p {
+    .pip-pairs p {
       margin-bottom: 0 !important;
     }
   }

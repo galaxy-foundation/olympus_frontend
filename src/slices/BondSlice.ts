@@ -91,7 +91,7 @@ export const calcBondDetails = createAsyncThunk(
     const maxBondPrice = await bondContract.maxPayout();
     const debtRatio = (await bondContract.standardizedDebtRatio()) / Math.pow(10, 9);
 
-    let marketPrice: number = 0;
+    let marketPrice: number = 1;
     try {
       const originalPromiseResult = await dispatch(
         findOrLoadMarketPrice({ networkID: networkID, provider: provider }),
@@ -141,7 +141,7 @@ export const calcBondDetails = createAsyncThunk(
       const errorString =
         "You're trying to bond more than the maximum payout available! The maximum bond payout is " +
         (maxBondPrice / Math.pow(10, 9)).toFixed(2).toString() +
-        " OHM.";
+        " PIP.";
       dispatch(error(errorString));
     }
 

@@ -17,9 +17,9 @@ export const getBalances = createAsyncThunk(
   "account/getBalances",
   async ({ address, networkID, provider }: IBaseAddressAsyncThunk) => {
     console.log("ohmBalance", "sohmBalance");
-    const ohmContract = new ethers.Contract(addresses[networkID].OHM_ADDRESS as string, ierc20Abi, provider);
+    const ohmContract = new ethers.Contract(addresses[networkID].PIP_ADDRESS as string, ierc20Abi, provider);
     const ohmBalance = await ohmContract.balanceOf(address);
-    const sohmContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS as string, ierc20Abi, provider);
+    const sohmContract = new ethers.Contract(addresses[networkID].SPIP_ADDRESS as string, ierc20Abi, provider);
     const sohmBalance = await sohmContract.balanceOf(address);
     let poolBalance = 0;
     console.log("ohmBalance", ohmBalance, "sohmBalance", sohmBalance);
@@ -28,7 +28,7 @@ export const getBalances = createAsyncThunk(
 
     return {
       balances: {
-        ohm: ethers.utils.formatUnits(ohmBalance, "gwei"),
+        pip: ethers.utils.formatUnits(ohmBalance, "gwei"),
         sohm: ethers.utils.formatUnits(sohmBalance, "gwei"),
         pool: ethers.utils.formatUnits(poolBalance, "gwei"),
       },
@@ -39,7 +39,7 @@ export const getBalances = createAsyncThunk(
 interface IUserAccountDetails {
   balances: {
     dai: string;
-    ohm: string;
+    pip: string;
     sohm: string;
   };
   staking: {
@@ -72,15 +72,15 @@ export const loadAccountDetails = createAsyncThunk(
     const daiContract = new ethers.Contract(addresses[networkID].DAI_ADDRESS as string, ierc20Abi, provider);
     const daiBalance = await daiContract.balanceOf(address);
     console.log("account/daiBalance", String(daiBalance));
-    if (addresses[networkID].OHM_ADDRESS) {
-      const ohmContract = new ethers.Contract(addresses[networkID].OHM_ADDRESS as string, ierc20Abi, provider);
+    if (addresses[networkID].PIP_ADDRESS) {
+      const ohmContract = new ethers.Contract(addresses[networkID].PIP_ADDRESS as string, ierc20Abi, provider);
       ohmBalance = await ohmContract.balanceOf(address);
       stakeAllowance = await ohmContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
       console.log("account/stakeAllowance", String(stakeAllowance));
     }
 
-    if (addresses[networkID].SOHM_ADDRESS) {
-      const sohmContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS as string, sOHMv2, provider);
+    if (addresses[networkID].SPIP_ADDRESS) {
+      const sohmContract = new ethers.Contract(addresses[networkID].SPIP_ADDRESS as string, sOHMv2, provider);
       sohmBalance = await sohmContract.balanceOf(address);
       unstakeAllowance = await sohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
       // poolAllowance = await sohmContract.allowance(address, addresses[networkID].PT_PRIZE_POOL_ADDRESS);
@@ -124,7 +124,7 @@ export const loadAccountDetails = createAsyncThunk(
     return {
       balances: {
         dai: ethers.utils.formatEther(daiBalance),
-        ohm: ethers.utils.formatUnits(ohmBalance, "gwei"),
+        pip: ethers.utils.formatUnits(ohmBalance, "gwei"),
         sohm: ethers.utils.formatUnits(sohmBalance, "gwei"),
         fsohm: fsohmBalance,
         wsohm: ethers.utils.formatUnits(wsohmBalance, "gwei"),
@@ -203,7 +203,7 @@ export const calculateUserBondDetails = createAsyncThunk(
 interface IAccountSlice {
   bonds: { [key: string]: IUserBondDetails };
   balances: {
-    ohm: string;
+    pip: string;
     sohm: string;
     dai: string;
     oldsohm: string;
@@ -213,7 +213,7 @@ interface IAccountSlice {
 const initialState: IAccountSlice = {
   loading: false,
   bonds: {},
-  balances: { ohm: "", sohm: "", dai: "", oldsohm: "" },
+  balances: { pip: "", sohm: "", dai: "", oldsohm: "" },
 };
 
 const accountSlice = createSlice({

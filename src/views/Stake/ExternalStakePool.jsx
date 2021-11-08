@@ -19,9 +19,8 @@ import { Skeleton } from "@material-ui/lab";
 
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import BondLogo from "../../components/BondLogo";
-import { ReactComponent as OhmLusdImg } from "src/assets/tokens/OHM-LUSD.svg";
+import { ReactComponent as OhmLusdImg } from "src/assets/tokens/PIP-LUSD.svg";
 import { ReactComponent as ArrowUp } from "../../assets/icons/arrow-up.svg";
-import { getLusdData } from "../../slices/LusdSlice";
 import { useWeb3Context } from "src/hooks/web3Context";
 import { trim } from "../../helpers";
 
@@ -32,18 +31,9 @@ export default function ExternalStakePool() {
   const isSmallScreen = useMediaQuery("(max-width: 705px)");
   const isMobileScreen = useMediaQuery("(max-width: 513px)");
 
-  const isLusdLoading = useSelector(state => state.lusdData.loading);
-  const lusdData = useSelector(state => {
-    return state.lusdData;
-  });
-
   const ohmLusdReserveBalance = useSelector(state => {
     return state.account && state.account.bonds?.ohm_lusd_lp?.balance;
   });
-
-  const loadLusdData = async () => {
-    await dispatch(getLusdData({ address: address, provider: provider, networkID: chainID }));
-  };
 
   useEffect(() => {
     if (hasCachedProvider()) {
@@ -67,7 +57,7 @@ export default function ExternalStakePool() {
 
   return (
     <Zoom in={true}>
-      <Paper className={`ohm-card secondary ${isSmallScreen && "mobile"}`}>
+      <Paper className={`pip-card secondary ${isSmallScreen && "mobile"}`}>
         <div className="card-header">
           <Typography variant="h5">Farm Pool</Typography>
         </div>
@@ -88,9 +78,9 @@ export default function ExternalStakePool() {
                 <TableBody>
                   <TableRow>
                     <TableCell>
-                      <Box className="ohm-pairs">
+                      <Box className="pip-pairs">
                         <BondLogo bond={{ bondIconSvg: OhmLusdImg, isLP: true }}></BondLogo>
-                        <Typography>OHM-DAI</Typography>
+                        <Typography>PIP-DAI</Typography>
                       </Box>
                     </TableCell>
                     <TableCell align="left">
@@ -139,9 +129,9 @@ export default function ExternalStakePool() {
           ) : (
             <div className="stake-pool">
               <div className={`pool-card-top-row ${isMobileScreen && "small"}`}>
-                <Box className="ohm-pairs">
+                <Box className="pip-pairs">
                   <BondLogo bond={{ bondIconSvg: OhmLusdImg, isLP: true }}></BondLogo>
-                  <Typography gutterBottom={false}>OHM-LUSD</Typography>
+                  <Typography gutterBottom={false}>PIP-LUSD</Typography>
                 </Box>
               </div>
               <div className="pool-data">

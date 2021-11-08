@@ -5,21 +5,21 @@ import { abi as PairContract } from "../abi/PairContract.json";
 import { abi as RedeemHelperAbi } from "../abi/RedeemHelper.json";
 
 import { SvgIcon } from "@material-ui/core";
-import { ReactComponent as OhmImg } from "../assets/tokens/token_OHM.svg";
-import { ReactComponent as SOhmImg } from "../assets/tokens/token_sOHM.svg";
+import { ReactComponent as OhmImg } from "../assets/tokens/token_PIP.svg";
+import { ReactComponent as SOhmImg } from "../assets/tokens/token_sPIP.svg";
 
-import { ohm_dai } from "./AllBonds";
+import { dai } from "./AllBonds";
 import { JsonRpcSigner, StaticJsonRpcProvider } from "@ethersproject/providers";
 import { IBaseAsyncThunk } from "src/slices/interfaces";
 
 // NOTE (appleseed): this looks like an outdated method... we now have this data in the graph (used elsewhere in the app)
 export async function getMarketPrice({ networkID, provider }: IBaseAsyncThunk) {
-  const ohm_dai_address = ohm_dai.getAddressForReserve(networkID);
+  const ohm_dai_address = dai.getAddressForReserve(networkID);
   const pairContract = new ethers.Contract(ohm_dai_address, PairContract, provider);
   const reserves = await pairContract.getReserves();
-  const marketPrice = 100; //reserves[1] / reserves[0];
+  const marketPrice = reserves[1] / reserves[0];
 
-  // commit('set', { marketPrice: marketPrice / Math.pow(10, 9) });
+  //   commit('set', { marketPrice: marketPrice / Math.pow(10, 9) });
   return marketPrice;
 }
 
@@ -114,7 +114,7 @@ export function getOhmTokenImage(w?: number, h?: number) {
 }
 
 export function getTokenImage(name: string) {
-  if (name === "ohm") return getOhmTokenImage();
+  if (name === "pip") return getOhmTokenImage();
   if (name === "sohm") return getSohmTokenImage();
 }
 

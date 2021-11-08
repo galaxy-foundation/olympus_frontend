@@ -115,7 +115,7 @@ export const PoolWithdraw = props => {
       ) : (
         <Box className="withdrawal-container">
           <Box display="flex" alignItems="center" flexDirection={`${isMobileScreen ? "column" : "row"}`}>
-            <FormControl className="ohm-input" variant="outlined" color="primary">
+            <FormControl className="pip-input" variant="outlined" color="primary">
               <InputLabel htmlFor="amount-input"></InputLabel>
               <OutlinedInput
                 id="amount-input"
