@@ -3,7 +3,7 @@
     {
       "inputs": [
         { "internalType": "address", "name": "_OHM", "type": "address" },
-        { "internalType": "address", "name": "_sOHM", "type": "address" },
+        { "internalType": "address", "name": "_sPIP", "type": "address" },
         { "internalType": "uint256", "name": "_epochLength", "type": "uint256" },
         { "internalType": "uint256", "name": "_firstEpochNumber", "type": "uint256" },
         { "internalType": "uint256", "name": "_firstEpochBlock", "type": "uint256" }
@@ -117,7 +117,7 @@
     },
     {
       "inputs": [],
-      "name": "sOHM",
+      "name": "sPIP",
       "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"

@@ -137,36 +137,15 @@ export default function ExternalStakePool() {
               <div className="pool-data">
                 <div className="data-row">
                   <Typography>APY</Typography>
-                  <Typography>
-                    {isLusdLoading ? (
-                      <Skeleton width="80px" />
-                    ) : lusdData.apy === 0 ? (
-                      "Coming Soon"
-                    ) : (
-                      trim(lusdData.apy, 1) + "%"
-                    )}
-                  </Typography>
+                  <Typography>"Coming Soon"</Typography>
                 </div>
                 <div className="data-row">
                   <Typography>TVD</Typography>
-                  <Typography>
-                    {isLusdLoading ? (
-                      <Skeleton width="80px" />
-                    ) : (
-                      new Intl.NumberFormat("en-US", {
-                        style: "currency",
-                        currency: "USD",
-                        maximumFractionDigits: 0,
-                        minimumFractionDigits: 0,
-                      }).format(lusdData.tvl)
-                    )}
-                  </Typography>
+                  <Typography>1$</Typography>
                 </div>
                 <div className="data-row">
                   <Typography>Balance</Typography>
-                  <Typography>
-                    {isLusdLoading ? <Skeleton width="80px" /> : (trim(lusdData.balance, 2) || 0) + "LP"}
-                  </Typography>
+                  <Typography>0</Typography>
                 </div>
 
                 <Button

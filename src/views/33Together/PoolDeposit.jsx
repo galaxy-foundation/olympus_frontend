@@ -90,7 +90,7 @@ export const PoolDeposit = props => {
 
   useEffect(() => {
     props.setInfoTooltipMessage([
-      "Deposit sOHM to win! Once deposited, you will receive a corresponding amount of 33T and be entered to win until your sOHM is withdrawn.",
+      "Deposit sPIP to win! Once deposited, you will receive a corresponding amount of 33T and be entered to win until your sPIP is withdrawn.",
     ]);
   }, []);
 
@@ -150,7 +150,7 @@ export const PoolDeposit = props => {
                 onClick={() => onDeposit("deposit")}
                 fullWidth
               >
-                {txnButtonText(pendingTransactions, "pool_deposit", "Deposit sOHM")}
+                {txnButtonText(pendingTransactions, "pool_deposit", "Deposit sPIP")}
               </Button>
             ) : (
               <Button
@@ -167,11 +167,11 @@ export const PoolDeposit = props => {
           {newOdds > 0 && quantity > 0 && (
             <Box padding={1}>
               <Typography variant="body2" style={{ color: "#33BB33" }}>
-                Depositing {quantity} sOHM will increase odds of winning to 1 in {newOdds}&nbsp;
+                Depositing {quantity} sPIP will increase odds of winning to 1 in {newOdds}&nbsp;
               </Typography>
             </Box>
           )}
-          {/* NOTE (Appleseed): added this bc I kept losing track of which accounts I had sOHM in during testing */}
+          {/* NOTE (Appleseed): added this bc I kept losing track of which accounts I had sPIP in during testing */}
           <div className={`stake-user-data`}>
             <div className="data-row">
               <Typography variant="body1" align="left">
@@ -181,7 +181,7 @@ export const PoolDeposit = props => {
                 {isAppLoading ? (
                   <Skeleton width="80px" />
                 ) : (
-                  <>{new Intl.NumberFormat("en-US").format(sohmBalance)} sOHM</>
+                  <>{new Intl.NumberFormat("en-US").format(sohmBalance)} sPIP</>
                 )}
               </Typography>
             </div>

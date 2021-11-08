@@ -111,7 +111,7 @@ export const PoolPrize = () => {
             </Box>
           ) : (
             <Box margin={2} textAlign="center">
-              <Typography variant="h1">{trim(poolAwardBalance, 2)} sOHM</Typography>
+              <Typography variant="h1">{trim(poolAwardBalance, 2)} sPIP</Typography>
               <Typography variant="h4">Current Prize</Typography>
             </Box>
           )}

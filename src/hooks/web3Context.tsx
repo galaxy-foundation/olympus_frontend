@@ -143,10 +143,10 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
     if (chainID !== otherChainID) {
       console.warn("You are switching networks");
 
-      if (otherChainID === 31337) {
+      if (otherChainID === 250) {
         setChainID(otherChainID);
-        setUri("http://127.0.0.1:8545/");
-        // setUri("https://rpc.ftm.tools/");
+        // setUri("http://127.0.0.1:8545/");
+        setUri("https://rpc.ftm.tools/");
         return true;
       }
       return false;

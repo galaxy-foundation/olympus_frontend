@@ -2,8 +2,6 @@ import { BigNumber, ethers } from "ethers";
 import { addresses } from "../constants";
 import { abi as PrizePool } from "../abi/33-together/PrizePoolAbi2.json";
 import { abi as AwardPool } from "../abi/33-together/AwardAbi2.json";
-import { abi as SOhmAbi } from "../abi/sOHM.json";
-
 /**
  * Calculates user's odds of winning based on their pool balance
  * @param {*} usersPoolBalance the user's total balance of pool tokens

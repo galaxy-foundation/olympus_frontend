@@ -14,8 +14,8 @@ import { IBaseAsyncThunk } from "src/slices/interfaces";
 
 // NOTE (appleseed): this looks like an outdated method... we now have this data in the graph (used elsewhere in the app)
 export async function getMarketPrice({ networkID, provider }: IBaseAsyncThunk) {
-  const ohm_dai_address = dai.getAddressForReserve(networkID);
-  const pairContract = new ethers.Contract(ohm_dai_address, PairContract, provider);
+  const pip_dai_address = dai.getAddressForReserve(networkID);
+  const pairContract = new ethers.Contract(pip_dai_address, PairContract, provider);
   const reserves = await pairContract.getReserves();
   const marketPrice = reserves[1] / reserves[0];
 

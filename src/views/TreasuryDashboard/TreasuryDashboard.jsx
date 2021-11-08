@@ -115,10 +115,10 @@ function TreasuryDashboard() {
 
               <Box className="metric wsoprice">
                 <Typography variant="h6" color="textSecondary">
-                  wsOHM Price
+                  wsPIP Price
                   <InfoTooltip
                     message={
-                      "wsOHM = sOHM * index\n\nThe price of wsOHM is equal to the price of PIP multiplied by the current index"
+                      "wsPIP = sPIP * index\n\nThe price of wsPIP is equal to the price of PIP multiplied by the current index"
                     }
                   />
                 </Typography>
@@ -155,12 +155,12 @@ function TreasuryDashboard() {
                   Current Index
                   <InfoTooltip
                     message={
-                      "The current index tracks the amount of sOHM accumulated since the beginning of staking. Basically, how much sOHM one would have if they staked and held a single PIP from day 1."
+                      "The current index tracks the amount of sPIP accumulated since the beginning of staking. Basically, how much sPIP one would have if they staked and held a single PIP from day 1."
                     }
                   />
                 </Typography>
                 <Typography variant="h5">
-                  {currentIndex ? trim(currentIndex, 2) + " sOHM" : <Skeleton type="text" />}
+                  {currentIndex ? trim(currentIndex, 2) + " sPIP" : <Skeleton type="text" />}
                 </Typography>
               </Box>
             </Box>

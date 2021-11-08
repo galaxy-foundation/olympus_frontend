@@ -1,10 +1,8 @@
 import { ethers } from "ethers";
 import { addresses } from "../constants";
 import { abi as ierc20Abi } from "../abi/IERC20.json";
-import { abi as sOHM } from "../abi/sOHM.json";
-import { abi as sOHMv2 } from "../abi/sOhmv2.json";
+import { abi as sPIPv2 } from "../abi/sOhmv2.json";
 import { abi as fuseProxy } from "../abi/FuseProxy.json";
-import { abi as wsOHM } from "../abi/wsOHM.json";
 
 import { setAll } from "../helpers";
 
@@ -80,7 +78,7 @@ export const loadAccountDetails = createAsyncThunk(
     }
 
     if (addresses[networkID].SPIP_ADDRESS) {
-      const sohmContract = new ethers.Contract(addresses[networkID].SPIP_ADDRESS as string, sOHMv2, provider);
+      const sohmContract = new ethers.Contract(addresses[networkID].SPIP_ADDRESS as string, sPIPv2, provider);
       sohmBalance = await sohmContract.balanceOf(address);
       unstakeAllowance = await sohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
       // poolAllowance = await sohmContract.allowance(address, addresses[networkID].PT_PRIZE_POOL_ADDRESS);
@@ -107,9 +105,9 @@ export const loadAccountDetails = createAsyncThunk(
     // }
 
     // if (addresses[networkID].WSOHM_ADDRESS) {
-    //   const wsohmContract = new ethers.Contract(addresses[networkID].WSOHM_ADDRESS as string, wsOHM, provider);
+    //   const wsohmContract = new ethers.Contract(addresses[networkID].WSOHM_ADDRESS as string, wsPIP, provider);
     //   const balance = await wsohmContract.balanceOf(address);
-    //   wsohmBalance = await wsohmContract.wOHMTosOHM(balance);
+    //   wsohmBalance = await wsohmContract.wOHMTosPIP(balance);
     // }
 
     console.log(

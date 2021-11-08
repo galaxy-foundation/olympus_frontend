@@ -22,7 +22,7 @@
     {
       "inputs": [
         { "internalType": "address", "name": "ohmTokenAddress_", "type": "address" },
-        { "internalType": "address", "name": "sOHM_", "type": "address" },
+        { "internalType": "address", "name": "sPIP_", "type": "address" },
         { "internalType": "uint8", "name": "epochLengthInBlocks_", "type": "uint8" }
       ],
       "name": "initialize",
@@ -54,7 +54,7 @@
     { "inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
     {
       "inputs": [],
-      "name": "sOHM",
+      "name": "sPIP",
       "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"

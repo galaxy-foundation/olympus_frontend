@@ -38,12 +38,12 @@ export const dai = new StableBond({
       reserveAddress: "0xBd8659fCE5A08f3178F40299Ab009F0F5aB3DDe6",
     },
     [NetworkID.Fantom]: {
-      bondAddress: "0x3AA84212Eb8F0773bb54A72015E55fCE57F8497c",
-      reserveAddress: "0x0a349a25da556d168c52c0a4d664d61e295fb7fa",
+      bondAddress: "0xDAf72012710c687900baA2e9ACdd78389bfA3be4",
+      reserveAddress: "0xF284057240eB07117133130e6f8801cCd5Cb95C4",
     },
     [NetworkID.Local]: {
-      bondAddress: "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
-      reserveAddress: "0xC45A075F87e630c063ED28DB68C5CCEE9055c6E1",
+      bondAddress: "0xDAf72012710c687900baA2e9ACdd78389bfA3be4",
+      reserveAddress: "0xF284057240eB07117133130e6f8801cCd5Cb95C4",
     },
   },
 });
@@ -75,12 +75,12 @@ export const wFTM = new StableBond({
       reserveAddress: "0xBd8659fCE5A08f3178F40299Ab009F0F5aB3DDe6",
     },
     [NetworkID.Fantom]: {
-      bondAddress: "0xe28FC91166158FE433696C85f47d63a0B8615600",
-      reserveAddress: "0xbe70f479db6f6be2481c938dfc7a5fa5361371bd",
+      bondAddress: "0x72f3020bb86F8D9b8639048a87721250Fd04590D",
+      reserveAddress: "0x9467bfa18e1868fe7a8e3a7f98431797654c1678",
     },
     [NetworkID.Local]: {
-      bondAddress: "0xc6e7DF5E7b4f2A278906862b61205850344D4e7d",
-      reserveAddress: "0x284218E7f4D65c6bDc166923ed505A5838067b17",
+      bondAddress: "0x7e733382cf18637be0a726b798c0125cbeee8b51",
+      reserveAddress: "0x9467bfa18e1868fe7a8e3a7f98431797654c1678",
     },
   },
 });
