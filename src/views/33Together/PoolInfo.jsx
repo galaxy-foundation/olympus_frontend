@@ -33,7 +33,7 @@ export const PoolInfo = props => {
 
   return (
     <Zoom in={true}>
-      <Paper className="pip-card">
+      <Paper className="ohm-card">
         <div className="card-header">
           <Typography variant="h5">Prize Pool Info</Typography>
         </div>

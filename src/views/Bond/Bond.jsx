@@ -50,7 +50,7 @@ function Bond({ bond }) {
       <Grid container id="bond-view">
         <Backdrop open={true}>
           <Fade in={true}>
-            <Paper className="pip-card pip-modal">
+            <Paper className="ohm-card ohm-modal">
               <BondHeader
                 bond={bond}
                 slippage={slippage}

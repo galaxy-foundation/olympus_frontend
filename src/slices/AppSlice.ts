@@ -92,7 +92,7 @@ export const loadAppDetails = createAsyncThunk(
       OlympusStaking,
       provider,
     );
-    const sohmMainContract = new ethers.Contract(addresses[networkID].SPIP_ADDRESS as string, sPIPv2, provider);
+    const sohmMainContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS as string, sPIPv2, provider);
     const sohmOldContract = new ethers.Contract(addresses[networkID].OLD_SOHM_ADDRESS as string, sPIP, provider);
 
     // Calculating staking
@@ -162,8 +162,8 @@ export const findOrLoadMarketPrice = createAsyncThunk(
 );
 
 /**
- * - fetches the PIP price from CoinGecko (via getTokenPrice)
- * - falls back to fetch marketPrice from pip-dai contract
+ * - fetches the OHM price from CoinGecko (via getTokenPrice)
+ * - falls back to fetch marketPrice from ohm-dai contract
  * - updates the App.slice when it runs
  */
 const loadMarketPrice = createAsyncThunk("app/loadMarketPrice", async ({ networkID, provider }: IBaseAsyncThunk) => {

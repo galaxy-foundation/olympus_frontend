@@ -21,7 +21,7 @@
     },
     {
       "inputs": [],
-      "name": "PIP",
+      "name": "OHM",
       "outputs": [{ "internalType": "contract IERC20", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"

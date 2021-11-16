@@ -11,7 +11,7 @@ export enum NetworkID {
   Testnet = 4,
   FantomTestnet = 4002,
   Fantom = 250,
-  Local = 31337,
+  Local = 1337,
 }
 
 export enum BondType {

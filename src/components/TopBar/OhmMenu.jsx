@@ -10,7 +10,7 @@ import { ReactComponent as ohmTokenImg } from "../../assets/tokens/token_PIP.svg
 import { ReactComponent as t33TokenImg } from "../../assets/tokens/token_33T.svg";
 
 import "./ohmmenu.scss";
-import { dai, wFTM } from "src/helpers/AllBonds";
+import { dai, ohm_dai } from "src/helpers/AllBonds";
 import { useWeb3Context } from "../../hooks/web3Context";
 
 import PIPImg from "src/assets/tokens/token_PIP.svg";
@@ -22,11 +22,11 @@ const addTokenToWallet = (tokenSymbol, tokenAddress) => async () => {
     const host = window.location.origin;
     // NOTE (appleseed): 33T token defaults to sPIP logo since we don't have a 33T logo yet
     let tokenPath;
-    // if (tokenSymbol === "PIP") {
+    // if (tokenSymbol === "OHM") {
 
     // } ? PIPImg : SPIPImg;
     switch (tokenSymbol) {
-      case "PIP":
+      case "OHM":
         tokenPath = PIPImg;
         break;
       case "33T":
@@ -63,8 +63,8 @@ function OhmMenu() {
 
   const networkID = chainID;
 
-  const SPIP_ADDRESS = addresses[networkID].SPIP_ADDRESS;
-  const PIP_ADDRESS = addresses[networkID].PIP_ADDRESS;
+  const SOHM_ADDRESS = addresses[networkID].SOHM_ADDRESS;
+  const OHM_ADDRESS = addresses[networkID].OHM_ADDRESS;
   const PT_TOKEN_ADDRESS = addresses[networkID].PT_TOKEN_ADDRESS;
 
   const handleClick = event => {
@@ -72,29 +72,29 @@ function OhmMenu() {
   };
 
   const open = Boolean(anchorEl);
-  const id = "pip-popper";
+  const id = "ohm-popper";
   const daiAddress = dai.getAddressForReserve(networkID);
-  const wFTMAddress = wFTM.getAddressForReserve(networkID);
+  const ohm_daiAddress = ohm_dai.getAddressForReserve(networkID);
   return (
     <Box
       component="div"
       onMouseEnter={e => handleClick(e)}
       onMouseLeave={e => handleClick(e)}
-      id="pip-menu-button-hover"
+      id="ohm-menu-button-hover"
     >
-      <Button id="pip-menu-button" size="large" variant="contained" color="secondary" title="PIP" aria-describedby={id}>
+      <Button id="ohm-menu-button" size="large" variant="contained" color="secondary" title="OHM" aria-describedby={id}>
         <SvgIcon component={InfoIcon} color="primary" />
-        <Typography>PIP</Typography>
+        <Typography>OHM</Typography>
       </Button>
 
       <Popper id={id} open={open} anchorEl={anchorEl} placement="bottom-start" transition>
         {({ TransitionProps }) => {
           return (
             <Fade {...TransitionProps} timeout={100}>
-              <Paper className="pip-menu" elevation={1}>
+              <Paper className="ohm-menu" elevation={1}>
                 <Box component="div" className="buy-tokens">
                   <Link
-                    href={`https://app.sushi.com/swap?inputCurrency=${daiAddress}&outputCurrency=${PIP_ADDRESS}`}
+                    href={`https://app.sushi.com/swap?inputCurrency=${daiAddress}&outputCurrency=${OHM_ADDRESS}`}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -111,15 +111,15 @@ function OhmMenu() {
                     <Divider color="secondary" />
                     <p>ADD TOKEN TO WALLET</p>
                     <Box display="flex" flexDirection="row" justifyContent="space-between">
-                      <Button variant="contained" color="secondary" onClick={addTokenToWallet("PIP", PIP_ADDRESS)}>
+                      <Button variant="contained" color="secondary" onClick={addTokenToWallet("OHM", OHM_ADDRESS)}>
                         <SvgIcon
                           component={ohmTokenImg}
                           viewBox="0 0 32 32"
                           style={{ height: "25px", width: "25px" }}
                         />
-                        <Typography variant="body1">PIP</Typography>
+                        <Typography variant="body1">OHM</Typography>
                       </Button>
-                      <Button variant="contained" color="secondary" onClick={addTokenToWallet("sPIP", SPIP_ADDRESS)}>
+                      <Button variant="contained" color="secondary" onClick={addTokenToWallet("sPIP", SOHM_ADDRESS)}>
                         <SvgIcon
                           component={sOhmTokenImg}
                           viewBox="0 0 100 100"

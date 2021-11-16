@@ -196,7 +196,7 @@
         },
         {
             "inputs": [],
-            "name": "PIP",
+            "name": "OHM",
             "outputs": [
                 {
                     "internalType": "address",

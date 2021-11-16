@@ -1,22 +1,22 @@
-#pip-menu-button {
+#ohm-menu-button {
   padding: 12px;
   svg {
     margin-right: 3px;
     color: inherit !important;
   }
 }
-.pip-menu-button-hover {
+.ohm-menu-button-hover {
   z-index: 9;
 }
-#pip-popper,
-#pip-popper-pending {
+#ohm-popper,
+#ohm-popper-pending {
   z-index: 5;
   background-color: #00000003;
   backdrop-filter: blur(33px);
   -webkit-backdrop-filter: blur(33px);
   margin-top: 10px;
   border-radius: 10px;
-  .MuiPaper-root.pip-menu {
+  .MuiPaper-root.ohm-menu {
     padding: 16px 6px;
     display: flex;
     flex-direction: column;

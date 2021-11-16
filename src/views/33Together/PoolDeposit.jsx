@@ -116,7 +116,7 @@ export const PoolDeposit = props => {
       ) : (
         <Box className="deposit-container">
           <Box display="flex" alignItems="center" flexDirection={`${isMobileScreen ? "column" : "row"}`}>
-            <FormControl className="pip-input" variant="outlined" color="primary">
+            <FormControl className="ohm-input" variant="outlined" color="primary">
               <InputLabel htmlFor="amount-input"></InputLabel>
               <OutlinedInput
                 id="amount-input"

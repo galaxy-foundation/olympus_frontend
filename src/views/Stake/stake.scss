@@ -27,10 +27,10 @@
     justify-items: center;
   }
 
-  .pip-card .header {
+  .ohm-card .header {
     min-height: 3em;
   }
-  .pip-card.secondary .card-header {
+  .ohm-card.secondary .card-header {
     min-height: 33px !important;
     height: 20px;
   }
@@ -92,7 +92,7 @@
   }
 }
 
-.pip-logo-tiny {
+.ohm-logo-tiny {
   height: 14px;
   width: 14px;
   vertical-align: middle;
@@ -147,7 +147,7 @@
   }
 }
 
-.pip-input {
+.ohm-input {
   max-width: 542px;
   width: 100%;
   margin: 5px !important;
@@ -201,7 +201,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    .pip-pairs p {
+    .ohm-pairs p {
       margin-bottom: 0 !important;
     }
   }

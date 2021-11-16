@@ -18,14 +18,14 @@ export async function getMarketPrice({ networkID, provider }: IBaseAsyncThunk) {
   const pairContract = new ethers.Contract(pip_dai_address, PairContract, provider);
   const reserves = await pairContract.getReserves();
   const marketPrice = reserves[1] / reserves[0];
-
+  console.log("marketPrice", marketPrice);
   //   commit('set', { marketPrice: marketPrice / Math.pow(10, 9) });
   return marketPrice;
 }
 
 export async function getTokenPrice(tokenId = "olympus") {
-  const resp = await axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=${tokenId}&vs_currencies=usd`);
-  let tokenPrice: number = resp.data[tokenId].usd;
+  // const resp = await axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=${tokenId}&vs_currencies=usd`);
+  let tokenPrice: number = 5; //resp.data[tokenId].usd;
   return tokenPrice;
 }
 
@@ -114,7 +114,7 @@ export function getOhmTokenImage(w?: number, h?: number) {
 }
 
 export function getTokenImage(name: string) {
-  if (name === "pip") return getOhmTokenImage();
+  if (name === "ohm") return getOhmTokenImage();
   if (name === "sohm") return getSohmTokenImage();
 }
 

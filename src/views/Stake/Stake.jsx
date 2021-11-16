@@ -55,7 +55,7 @@ function Stake() {
     return state.app.fiveDayRate;
   });*/
   const pipBalance = useSelector(state => {
-    return state.account.balances && state.account.balances.pip;
+    return state.account.balances && state.account.balances.ohm;
   });
   const oldSohmBalance = useSelector(state => {
     return state.account.balances && state.account.balances.oldsohm;
@@ -111,7 +111,7 @@ function Stake() {
     // 1st catch if quantity > balance
     let gweiValue = ethers.utils.parseUnits(quantity, "gwei");
     if (action === "stake" && gweiValue.gt(ethers.utils.parseUnits(pipBalance, "gwei"))) {
-      return dispatch(error("You cannot stake more than your PIP balance."));
+      return dispatch(error("You cannot stake more than your OHM balance."));
     }
 
     if (action === "unstake" && gweiValue.gt(ethers.utils.parseUnits(sPIPBalance, "gwei"))) {
@@ -123,7 +123,7 @@ function Stake() {
 
   const hasAllowance = useCallback(
     token => {
-      if (token === "pip") return stakeAllowance > 0;
+      if (token === "ohm") return stakeAllowance > 0;
       if (token === "sPIP") return unstakeAllowance > 0;
       return 0;
     },
@@ -158,7 +158,7 @@ function Stake() {
   return (
     <div id="stake-view">
       <Zoom in={true} onEntered={() => setZoomed(true)}>
-        <Paper className={`pip-card`}>
+        <Paper className={`ohm-card`}>
           <Grid container direction="column" spacing={2}>
             <Grid item>
               <div className="card-header">
@@ -226,7 +226,7 @@ function Stake() {
                         Current Index
                       </Typography>
                       <Typography variant="h4">
-                        100{/*{currentIndex ? <>{trim(currentIndex, 1)} PIP</> : <Skeleton width="150px" />}*/}
+                        100{/*{currentIndex ? <>{trim(currentIndex, 1)} OHM</> : <Skeleton width="150px" />}*/}
                       </Typography>
                     </div>
                   </Grid>
@@ -240,7 +240,7 @@ function Stake() {
                   <div className="wallet-menu" id="wallet-menu">
                     {modalButton}
                   </div>
-                  <Typography variant="h6">Connect your wallet to stake PIP</Typography>
+                  <Typography variant="h6">Connect your wallet to stake OHM</Typography>
                 </div>
               ) : (
                 <>
@@ -261,14 +261,14 @@ function Stake() {
 
                     <Box className="stake-action-row " display="flex" alignItems="center">
                       {address && !isAllowanceDataLoading ? (
-                        (!hasAllowance("pip") && view === 0) || (!hasAllowance("sPIP") && view === 1) ? (
+                        (!hasAllowance("ohm") && view === 0) || (!hasAllowance("sPIP") && view === 1) ? (
                           <Box className="help-text">
                             <Typography variant="body1" className="stake-note" color="textSecondary">
                               {view === 0 ? (
                                 <>
-                                  First time staking <b>PIP</b>?
+                                  First time staking <b>OHM</b>?
                                   <br />
-                                  Please approve Olympus Dao to use your <b>PIP</b> for staking.
+                                  Please approve Olympus Dao to use your <b>OHM</b> for staking.
                                 </>
                               ) : (
                                 <>
@@ -280,7 +280,7 @@ function Stake() {
                             </Typography>
                           </Box>
                         ) : (
-                          <FormControl className="pip-input" variant="outlined" color="primary">
+                          <FormControl className="ohm-input" variant="outlined" color="primary">
                             <InputLabel htmlFor="amount-input"></InputLabel>
                             <OutlinedInput
                               id="amount-input"
@@ -307,7 +307,7 @@ function Stake() {
                       <TabPanel value={view} index={0} className="stake-tab-panel">
                         {isAllowanceDataLoading ? (
                           <Skeleton />
-                        ) : address && hasAllowance("pip") ? (
+                        ) : address && hasAllowance("ohm") ? (
                           <Button
                             className="stake-button"
                             variant="contained"
@@ -317,7 +317,7 @@ function Stake() {
                               onChangeStake("stake");
                             }}
                           >
-                            {txnButtonText(pendingTransactions, "staking", "Stake PIP")}
+                            {txnButtonText(pendingTransactions, "staking", "Stake OHM")}
                           </Button>
                         ) : (
                           <Button
@@ -326,7 +326,7 @@ function Stake() {
                             color="primary"
                             disabled={isPendingTxn(pendingTransactions, "approve_staking")}
                             onClick={() => {
-                              onSeekApproval("pip");
+                              onSeekApproval("ohm");
                             }}
                           >
                             {txnButtonText(pendingTransactions, "approve_staking", "Approve")}
@@ -346,7 +346,7 @@ function Stake() {
                               onChangeStake("unstake");
                             }}
                           >
-                            {txnButtonText(pendingTransactions, "unstaking", "Unstake PIP")}
+                            {txnButtonText(pendingTransactions, "unstaking", "Unstake OHM")}
                           </Button>
                         ) : (
                           <Button
@@ -369,7 +369,7 @@ function Stake() {
                     <div className="data-row">
                       <Typography variant="body1">Your Balance</Typography>
                       <Typography variant="body1">
-                        {isAppLoading ? <Skeleton width="80px" /> : <>{trim(pipBalance, 4)} PIP</>}
+                        {isAppLoading ? <Skeleton width="80px" /> : <>{trim(pipBalance, 4)} OHM</>}
                       </Typography>
                     </div>
 

@@ -143,7 +143,7 @@ const PoolTogether = () => {
     <div id="pool-together-view">
       <PoolPrize />
 
-      <Paper className="pip-card">
+      <Paper className="ohm-card">
         <Box display="flex">
           <CardHeader title="3, 3 Together" />
           <InfoTooltipMulti messagesArray={infoTooltipMessage} />

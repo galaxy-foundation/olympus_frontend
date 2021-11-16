@@ -9,12 +9,12 @@
       background: rgba(100, 100, 100, 0.1) !important;
       backdrop-filter: blur(33px) !important;
       -webkit-backdrop-filter: blur(33px) !important;
-      .pip-card {
+      .ohm-card {
         opacity: 1 !important;
         height: auto;
       }
     }
-    .pip-modal {
+    .ohm-modal {
       max-width: 688px;
       min-height: 605px;
     }
@@ -24,17 +24,17 @@
   @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
     .MuiBackdrop-root {
       background: rgba(100, 100, 100, 0.95);
-      .pip-card {
+      .ohm-card {
         height: auto;
       }
     }
-    .pip-modal {
+    .ohm-modal {
       max-width: 688px;
       min-height: 605px;
       opacity: 0.9;
     }
   }
-  .pip-card {
+  .ohm-card {
     max-width: 803px;
   }
 
@@ -42,7 +42,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .pip-pair-img,
+    .ohm-pair-img,
     .reserve-pair-img {
       height: 38px;
       width: 38px;
@@ -77,7 +77,7 @@
     }
   }
 
-  .pip-input {
+  .ohm-input {
     min-width: 50%;
     max-width: 408px;
     margin: 5px;
@@ -92,7 +92,7 @@
 }
 
 .mobile #bond-view {
-  .pip-card {
+  .ohm-card {
     .card-content {
       justify-content: space-evenly !important;
       .bond-toggle-row {
@@ -104,7 +104,7 @@
         justify-content: center;
         align-items: center;
         align-content: center;
-        .input-group.pip-input-group {
+        .input-group.ohm-input-group {
           margin: 10px !important;
           width: 75%;
           height: 50px;

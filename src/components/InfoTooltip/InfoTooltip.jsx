@@ -23,7 +23,7 @@ function InfoTooltip({ message }) {
         className="info-icon"
       ></SvgIcon>
       <Popper id={id} open={open} anchorEl={anchorEl} placement="bottom" className="tooltip">
-        <Paper className="info-tooltip pip-card">
+        <Paper className="info-tooltip ohm-card">
           <Typography variant="body2" className="info-tooltip-text">
             {message}
           </Typography>
